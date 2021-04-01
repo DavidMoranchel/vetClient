@@ -14,7 +14,6 @@
     <title>Document</title>
   </head>
   <body>
-    <script src="js/middlewares/redirectLogInMiddleware.js"></script>
     <nav class="navbar navbar-dark bg-dark">
       <div class="container-fluid">
         <span class="navbar-brand mb-0 h1">Navbar</span>
@@ -24,64 +23,32 @@
     <div class="container mt-2">
       <div class="row">
         <div class="col-12 d-flex justify-content-center">
-          <form id="owners-create-form" class="p-5" method="post">
+          <form id="login-form" class="p-5" method="post">
             <div class="row py-1">
               <div class="col">
                 <input
-                  id="firstName"
+                  id="username"
                   type="text"
                   class="form-control"
-                  placeholder="First name"
+                  placeholder="Username"
                 />
-                <div class="invalid-feedback">Please insert a first name.</div>
-              </div>
-              <div class="col">
-                <input
-                  id="lastName"
-                  type="text"
-                  class="form-control"
-                  placeholder="Last name"
-                />
-                <div class="invalid-feedback">Please insert a last name.</div>
+                <div class="invalid-feedback">Please insert an username.</div>
               </div>
             </div>
             <div class="row py-1">
               <div class="col">
                 <input
-                  id="email"
-                  type="email"
+                  id="password"
+                  type="password"
                   class="form-control"
-                  placeholder="Email"
+                  placeholder="Password"
                 />
-                <div id="email-feedback" class="invalid-feedback"></div>
-              </div>
-              <div class="col">
-                <input
-                  id="phone"
-                  type="tel"
-                  class="form-control"
-                  placeholder="Phone"
-                />
-                <div id="phone-feedback" class="invalid-feedback">
-                  Please insert a phone.
-                </div>
-              </div>
-            </div>
-            <div class="row py-1">
-              <div class="col">
-                <textarea
-                  id="address"
-                  class="form-control"
-                  placeholder="Address"
-                ></textarea>
-                <div class="invalid-feedback">Please insert a address.</div>
+                <div class="invalid-feedback">Please insert a password.</div>
               </div>
             </div>
             <div class="row py-2">
               <div class="col">
-                <button type="submit" class="btn btn-outline-primary">
-                  Add Owner
-                </button>
+                <button type="submit" class="btn btn-primary">Login</button>
               </div>
             </div>
           </form>
@@ -99,6 +66,6 @@
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
       crossorigin="anonymous"
     ></script>
-    <script src="js/createOwner.js"></script>
+    <script src="js/login.js"></script>
   </body>
 </html>

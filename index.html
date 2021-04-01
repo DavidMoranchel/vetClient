@@ -14,9 +14,11 @@
     <title>Document</title>
   </head>
   <body>
+    <script src="js/middlewares/redirectLogInMiddleware.js"></script>
     <nav class="navbar navbar-dark bg-dark">
       <div class="container-fluid">
         <span class="navbar-brand mb-0 h1">Navbar</span>
+        <button id="logOut" class="btn btn-outline-danger">Logout</button>
       </div>
     </nav>
 
@@ -53,5 +55,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/main.js"></script>
+    <script src="js/middlewares/logOutMiddleware.js"></script>
   </body>
 </html>

@@ -1,10 +1,11 @@
 $(document).ready(async () => {
   const data = await fetch("http://localhost:8000/api/owners/", {
     headers: {
-      Authorization: "Token 5f809ab0c09d3779325cc3530ceffb7cb20f3679",
+      Authorization: `Token ${authtoken}`,
     },
   });
   const json = await data.json();
+  console.log(data, json);
   const owners = json.map((owner) => {
     return `
       <tr>

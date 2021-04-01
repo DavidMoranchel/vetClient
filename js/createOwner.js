@@ -65,11 +65,10 @@ $("#owners-create-form").on("submit", async (event) => {
         $("#phone-feedback").text(json.phone[0]);
       }
     }
-
-    console.log(json, "error de django configurado");
+    if (data.status === 201) {
+      window.location.href = "/";
+    }
   } catch (error) {
     console.log(error);
   }
-
-  // window.location.href = "/";
 });
