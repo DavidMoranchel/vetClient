@@ -17,6 +17,7 @@ $("#owners-create-form").on("submit", async (event) => {
   const email = $("#email").val();
   if (!email) {
     $("#email").addClass("is-invalid");
+    $("#email-feedback").text("Please insert an email.");
     return;
   } else {
     $("#email").removeClass("is-invalid");
@@ -24,6 +25,7 @@ $("#owners-create-form").on("submit", async (event) => {
   const phone = $("#phone").val();
   if (!phone) {
     $("#phone").addClass("is-invalid");
+    $("#phone-feedback").text("Please insert a phone.");
     return;
   } else {
     $("#phone").removeClass("is-invalid");
@@ -37,21 +39,37 @@ $("#owners-create-form").on("submit", async (event) => {
   }
   console.log("submit", firstName, lastName, email, phone, address);
 
-  const data = await fetch("http://localhost:8000/api/owners/create/", {
-    method: "POST",
-    headers: {
-      Authorization: "Token 5f809ab0c09d3779325cc3530ceffb7cb20f3679",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      first_name: firstName,
-      last_name: lastName,
-      email,
-      phone,
-      address,
-    }),
-  });
-  const json = await data.json();
+  try {
+    const data = await fetch("http://localhost:8000/api/owners/create/", {
+      method: "POST",
+      headers: {
+        Authorization: "Token 5f809ab0c09d3779325cc3530ceffb7cb20f3679",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        phone,
+        address,
+      }),
+    });
+    const json = await data.json();
+    if (data.status === 400) {
+      if (json.email) {
+        $("#email").addClass("is-invalid");
+        $("#email-feedback").text(json.email[0]);
+      }
+      if (json.phone) {
+        $("#phone").addClass("is-invalid");
+        $("#phone-feedback").text(json.phone[0]);
+      }
+    }
 
-  window.location.href = "/";
+    console.log(json, "error de django configurado");
+  } catch (error) {
+    console.log(error);
+  }
+
+  // window.location.href = "/";
 });

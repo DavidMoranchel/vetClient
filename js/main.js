@@ -6,7 +6,6 @@ $(document).ready(async () => {
   });
   const json = await data.json();
   const owners = json.map((owner) => {
-    console.log(owner);
     return `
       <tr>
         <th scope="row">${owner.id}</th>
@@ -15,7 +14,5 @@ $(document).ready(async () => {
       </tr>
     `;
   });
-  console.log(owners);
-  $("#owners-list").append(owners);
-  console.log(data, json);
+  $("#owners-list").html(owners);
 });
