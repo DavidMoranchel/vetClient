@@ -43,7 +43,7 @@ $("#owners-create-form").on("submit", async (event) => {
     const data = await fetch("http://localhost:8000/api/owners/create/", {
       method: "POST",
       headers: {
-        Authorization: "Token 5f809ab0c09d3779325cc3530ceffb7cb20f3679",
+        Authorization: `Token ${authtoken}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
